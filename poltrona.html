@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <meta charset="uft-8">    
+        <title>Poltronas</title>
+        <link rel="stylesheet" type="text/css" href="Style.css">   
+    <script language="javascript">
+
+        var indice = 0;
+        
+
+        function clicou(L, C, N) 
+        {
+            poltrona = new Array();
+            
+            if (poltrona[N - 1] != 1) 
+            {
+                document.getElementById("poltrona" + L + "," + C).innerHTML = "X";
+                indice ++
+            }
+            
+        } 
+        function ocupacao() {
+            alert("ocupação de: " + (indice / 600) * 100 + "%");
+            
+        }
+    </script>
+    </head>
+    <body>
+        <center>
+        <form>
+            <table>
+    
+        <script language="javascript">
+            var num = 1;
+
+            var lugar = new Array(16);
+
+            for(var i = 0; i < lugar.length; i++)
+            {
+                lugar[i] = new Array(39);
+                
+            }
+ 
+
+            for (var linha = 1; linha <= 15; linha++) 
+            {
+                document.write("<tr>");
+
+                for (var coluna = 1; coluna <= 40 ; coluna++) 
+                {
+                lugar[linha][coluna] = "<input type='button'" + num + "' onclick='clicou(" + linha + "," + coluna + "," + num + ");'><br>";
+                document.write("<td id='poltrona"+ linha + "," + coluna + "'>" + lugar[linha][coluna] + '</td>');
+                num++
+                }
+                document.write("</tr>");
+            }
+        </script>
+        </table>
+        <input type="button" value="enviar" onclick="ocupacao();">
+        </form>
+    </body>
+</html>
